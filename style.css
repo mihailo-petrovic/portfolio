@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+:root {
+  --ff-primary: "Courier New", Courier, monospace;
+  --clr-light: rgb(236, 236, 236);
+  --clr-dark: rgb(19, 6, 6);
+  --clr-green: rgb(37, 107, 58);
+  --bs: 0.3em 0.3em 0.7em rgba(0, 0, 0, 0.3),
+    0.15em 0.15em 0.4em rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  transition: all 0.2s ease-in-out;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover {
+  cursor: default;
+  transform: translateX(10px)
+}
+
+
+/* HEADER */
+.header {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.meni {
+  list-style-type: none;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+.meni li {
+  display: inline;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+.meni li a,
+.meni li a:visited,
+.meni li a:active {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+.meni li a:hover {
+  color: var(--clr-green);
+}
+.label-ham,
+#check {
+  display: none;
+}
+
+/* MAIN */
+.main {
+  position: relative;
+  display: grid;
+  grid-template: "a b";
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 70px);
+  width: 100vw;
+}
+.main #leftMain {
+  grid-template-areas: "a";
+  overflow: hidden;
+}
+.leftInnerDiv {
+  padding: 20%;
+  line-height: 3em;
+}
+.leftInnerDiv h2 {
+  font-size: 2.3em;
+}
+.leftInnerDiv .fed {
+  background-color: var(--clr-green);
+  color: var(--clr-light);
+  width: 280px;
+  line-height: 35px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+.leftInnerDiv .aDiv {
+  width: 110px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0;
+  border: 1.7px solid var(--clr-dark);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.leftInnerDiv .aDiv:hover {
+  cursor: pointer;
+  width: 130px;
+  border-color: var(--clr-green);
+}
+
+.main #rightMain {
+  grid-template-areas: "b";
+  background-image: url("./img/coverImg-min.jpg");
+  background-size: cover;
+}
+
+/* SKILLS */
+.skills {
+  height: 100vh;
+  width: 100vw;
+  margin-top: -150px;
+  padding: 40px 9%;
+  display: grid;
+  grid-template-areas:
+    "1 2 3"
+    "4 5 6";
+}
+.dvojka {
+  text-align: center;
+  line-height: 2em;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#html {
+  grid-area: "1";
+}
+#css {
+  grid-area: "2";
+}
+#javascript {
+  grid-area: "3";
+}
+#react {
+  grid-area: "4";
+}
+#wordpress {
+  grid-area: "5";
+}
+#node {
+  grid-area: "6";
+}
+.skillImg {
+  width: 80px;
+  transition: all 0.3s ease-in-out;
+}
+.skillImg:hover {
+  transform: rotate(10deg) scale(1.4);
+  cursor: pointer;
+}
+
+/* PROJECTS */
+.projects {
+  padding: 30px 0;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.project {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 20px;
+  min-height: 150px;
+  padding: 15px;
+  display: grid;
+  grid-template: "slika opis";
+  grid-template-columns: 150px auto;
+  border: 2px solid var(--clr-dark);
+}
+.project .pid {
+  grid-area: "slika";
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.project .pid:hover {
+  opacity: 70%;
+}
+.project .pid img {
+  width: 100%;
+  height: 100%;
+}
+.project .pOpis {
+  grid-area: "opis";
+  padding: 0 15px;
+}
+.project .pOpis h4 {
+  line-height: 2.5em;
+}
+.project .pOpis h4:hover {
+  cursor: pointer;
+}
+
+/* ABOUT */
+.about {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template: "img text";
+  grid-template-columns: 1fr 1fr;
+}
+
+#aboutLeft {
+  grid-area: "img";
+  overflow: hidden;
+  background: url("./img/me-min.jpg");
+  background-size: cover;
+}
+
+#aboutRight {
+  grid-area: "text";
+  text-align: right;
+  padding: 20px 60px 20px 20px;
+}
+#aboutRight h4 {
+  font-size: 2em;
+  line-height: 3em;
+}
+#aboutRight p {
+  line-height: 1.5em;
+}
+
+/* CONTACT */
+.contact {
+  padding: 70px 35px;
+  width: 100vw;
+  background-color: var(--clr-dark);
+  line-height: 3em;
+  color: var(--clr-light);
+  display: grid;
+  grid-template: "levo desno";
+  grid-template-columns: 1fr 1fr;
+}
+.contact a:hover {
+  color: var(--clr-green);
+}
+.numAndMail {
+  grid-area: "levo";
+}
+.socialNetworks {
+  grid-area: "desno";
+  text-align: right;
+}
+
+/* OTHER */
+
+#skillDiv {
+  width: 230px;
+  height: 150px;
+  line-height: 2em;
+  border: 2px solid var(--clr-green);
+  position: absolute;
+  top: -1000px;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  background-color: var(--clr-light);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#iksic {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#iksic:hover {
+  cursor: pointer;
+}
+
+#backToTop {
+  position: fixed;
+  right: -50px;
+  bottom: 30px;
+  transition: all 0.3s ease-in-out;
+}
+#backToTop:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .meni {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    top: -100vh;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    padding: 3em 0;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--clr-dark);
+    -webkit-transition: top 450ms ease-in-out;
+    -moz-transition: top 450ms ease-in-out;
+    -ms-transition: top 450ms ease-in-out;
+    -o-transition: top 450ms ease-in-out;
+    transition: top 450ms ease-in-out;
+  }
+  .label-ham {
+    display: block;
+    font-size: 30px;
+    padding-right: 30px;
+    z-index: 1000;
+  }
+  .ham-icon:hover {
+    color: var(--clr-green);
+    cursor: pointer;
+  }
+  #check {
+    display: none;
+  }
+  #check:checked ~ .meni {
+    top: 0vh;
+  }
+  #check:checked ~ .label-ham {
+    position: fixed;
+  }
+  .main {
+    grid-template: "a";
+  }
+  #rightMain {
+    display: none;
+  }
+  .leftInnerDiv .fed {
+    width: 230px;
+  }
+  .skills {
+    grid-template-areas: "1 2" "3 4" "5 6";
+  }
+  .about {
+    grid-template: "text text";
+  }
+  #aboutLeft {
+    display: none;
+  }
+  .contact {
+    grid-template: "levo" "desno";
+  }
+  .socialNetworks {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 500px) {
+  .leftInnerDiv {
+    padding-top: 40%;
+  }
+  .skills {
+    height: fit-content;
+    display: block;
+  }
+  .skill {
+    padding: 30px 5px;
+  }
+  .project .pid {
+    display: none;
+  }
+  .project {
+    grid-template: 'opis opis';
+  }
+  .project .pOpis h4 {
+    color: var(--clr-green);
+  }
+}
